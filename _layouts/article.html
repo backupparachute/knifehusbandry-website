@@ -1,0 +1,44 @@
+---
+layout: default
+---
+{% assign pillar = site.pillars | where: 'slug', page.pillar | first %}
+
+<article class="article">
+  <div class="container">
+    <header class="article-header">
+      {% if pillar %}
+        <a class="pillar-tag" href="/{{ pillar.slug }}/">{{ pillar.title }}</a>
+      {% endif %}
+      <h1 class="article-title">{{ page.title }}</h1>
+      {% if page.dek %}<p class="article-dek">{{ page.dek }}</p>{% endif %}
+      <p class="article-meta">
+        {% if page.date %}<time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>{% endif %}
+      </p>
+    </header>
+
+    {% if page.hero_image %}
+      <figure class="article-hero">
+        <img src="{{ page.hero_image | relative_url }}" alt="{{ page.hero_alt | default: '' }}" loading="eager">
+        {% if page.hero_caption %}<figcaption>{{ page.hero_caption }}</figcaption>{% endif %}
+      </figure>
+    {% endif %}
+
+    <div class="article-body">
+      {{ content }}
+    </div>
+  </div>
+</article>
+
+{% assign related = site[page.pillar] | where_exp: 'item', 'item.url != page.url' | sort: 'date' | reverse %}
+{% if related.size > 0 %}
+  <section class="container py-5" style="border-top: 1px solid #3A3833;">
+    <p class="eyebrow mb-4">More in {{ pillar.title }}</p>
+    <div class="row g-4">
+      {% for item in related limit: 3 %}
+        <div class="col-md-4">
+          {% include article-card.html item=item %}
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+{% endif %}

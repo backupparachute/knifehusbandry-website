@@ -1,0 +1,757 @@
+// ----------------------------------------------------------------------------
+// Bespoke components.
+// Only the bits Bootstrap does not give us directly.
+// ----------------------------------------------------------------------------
+
+// Skip link. Hidden until focused.
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 1rem;
+  background: $brass;
+  color: $workshop-bg;
+  padding: .5rem .75rem;
+  z-index: 1080;
+  font-family: $font-family-display;
+  text-decoration: none;
+
+  &:focus {
+    top: .75rem;
+  }
+}
+
+// Site header
+.site-header {
+  background: $workshop-bg;
+  border-bottom: 1px solid $workshop-border;
+}
+
+.site-brand {
+  font-family: $font-family-display;
+  font-weight: 600;
+  font-size: 1.15rem;
+  letter-spacing: .01em;
+  color: $bone;
+
+  &:hover { color: $bone; }
+}
+
+.nav-primary .nav-link {
+  font-family: $font-family-display;
+  font-size: 1rem;
+  letter-spacing: .02em;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.navbar-toggler {
+  border: 1px solid $workshop-border;
+  padding: .375rem .5rem;
+  color: $bone;
+}
+
+// Custom collapse driven by assets/js/site.js. Avoids loading Bootstrap JS.
+@media (max-width: 767.98px) {
+  .nav-menu {
+    display: none;
+    width: 100%;
+    padding-top: .5rem;
+
+    &.is-open { display: block; }
+
+    .nav-primary {
+      flex-direction: column;
+      gap: .25rem;
+      padding: .5rem 0;
+    }
+
+    .nav-link {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
+
+// Hero stack
+.hero-stack {
+  padding: 5rem 0 4rem;
+  border-bottom: 1px solid $workshop-border;
+}
+
+.hero-name {
+  font-family: $font-family-display;
+  font-weight: 600;
+  font-size: clamp(2.75rem, 6vw, 4.5rem);
+  letter-spacing: -.02em;
+  line-height: 1;
+  margin: 0;
+}
+
+.hero-tagline {
+  font-family: $font-family-display;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.25rem, 2.2vw, 1.625rem);
+  color: $brass;
+  margin: 1rem 0 .5rem;
+}
+
+.hero-descriptor {
+  font-family: $font-family-serif;
+  font-size: 1.125rem;
+  color: $bone-muted;
+  margin: 0;
+}
+
+// Pillar label badge
+.pillar-tag {
+  display: inline-block;
+  font-family: $font-family-display;
+  font-size: .75rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: $bone-muted;
+  padding: .15rem 0;
+  border-bottom: 1px solid $brass;
+}
+
+// Article card
+.article-card {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+
+  .article-card-media {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border: 1px solid $workshop-border;
+    background: $workshop-surface;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .5s ease;
+    }
+  }
+
+  &:hover .article-card-media img {
+    transform: scale(1.02);
+  }
+
+  .article-card-title {
+    font-family: $font-family-display;
+    font-weight: 600;
+    font-size: 1.375rem;
+    line-height: 1.25;
+    margin: 0;
+
+    a { color: $bone; }
+    a:hover { color: $brass; text-decoration: none; }
+  }
+
+  .article-card-dek {
+    color: $bone-muted;
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  .article-card-meta {
+    font-size: .85rem;
+    color: $bone-muted;
+  }
+}
+
+// Long-form article body
+.article {
+  padding: 3rem 0 5rem;
+
+  .article-header {
+    max-width: 42rem;
+    margin: 0 auto 2.5rem;
+    text-align: left;
+  }
+
+  .article-title {
+    font-family: $font-family-display;
+    font-weight: 600;
+    font-size: clamp(2rem, 4vw, 3rem);
+    letter-spacing: -.01em;
+    line-height: 1.1;
+    margin: .75rem 0 1rem;
+  }
+
+  .article-dek {
+    font-family: $font-family-display;
+    font-style: italic;
+    font-size: 1.375rem;
+    line-height: 1.4;
+    color: $bone-muted;
+    margin: 0 0 1.5rem;
+  }
+
+  .article-meta {
+    font-size: .9rem;
+    color: $bone-muted;
+  }
+
+  .article-hero {
+    margin: 0 0 3rem;
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: 1px solid $workshop-border;
+    }
+
+    figcaption {
+      font-size: .85rem;
+      color: $bone-muted;
+      margin-top: .5rem;
+      max-width: 42rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .article-body {
+    max-width: 38rem;
+    margin: 0 auto;
+    font-size: 1.125rem;
+    line-height: 1.75;
+
+    p, ul, ol {
+      margin-bottom: 1.35rem;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      font-size: 1.375rem;
+      margin-top: 2.5rem;
+      margin-bottom: .75rem;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 2rem 0;
+      border: 1px solid $workshop-border;
+    }
+
+    blockquote {
+      border-left: 3px solid $brass;
+      padding: .25rem 0 .25rem 1.25rem;
+      margin: 2rem 0;
+      color: $bone-muted;
+      font-style: italic;
+      font-family: $font-family-display;
+      font-size: 1.25rem;
+      line-height: 1.4;
+    }
+
+    code {
+      color: $brass-hover;
+      background: rgba($brass, .08);
+      padding: .1rem .35rem;
+      border-radius: .125rem;
+      font-size: .92em;
+    }
+
+    pre {
+      background: $workshop-surface;
+      border: 1px solid $workshop-border;
+      padding: 1rem;
+      overflow-x: auto;
+      font-size: .92rem;
+    }
+
+    hr {
+      border: 0;
+      border-top: 1px solid $workshop-border;
+      margin: 3rem auto;
+      width: 6rem;
+    }
+  }
+}
+
+// Pull quote
+.pull-quote {
+  margin: 2.5rem 0;
+  padding: .25rem 0 .25rem 1.5rem;
+  border-left: 3px solid $brass;
+  font-family: $font-family-display;
+  font-style: italic;
+  font-size: 1.5rem;
+  line-height: 1.35;
+  color: $bone;
+
+  cite {
+    display: block;
+    margin-top: .75rem;
+    font-size: .95rem;
+    font-style: normal;
+    color: $bone-muted;
+    font-family: $font-family-serif;
+
+    &::before { content: "— "; }
+  }
+}
+
+// Referral callout
+.referral-callout {
+  margin: 2.5rem 0;
+  padding: 1.25rem 1.25rem 1.25rem 1.5rem;
+  background: $workshop-surface;
+  border: 1px solid $workshop-border;
+  border-left: 3px solid $brass;
+
+  .referral-tag {
+    display: inline-block;
+    font-family: $font-family-display;
+    font-size: .7rem;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: $bone-muted;
+    margin-bottom: .5rem;
+  }
+
+  .referral-product {
+    font-family: $font-family-display;
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: $bone;
+    margin: 0 0 .35rem;
+
+    a { color: $bone; }
+    a:hover { color: $brass; text-decoration: none; }
+  }
+
+  .referral-note {
+    margin: 0;
+    color: $bone-muted;
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+}
+
+// Pillar header (top of pillar index pages)
+.pillar-header {
+  padding: 4rem 0 2rem;
+  border-bottom: 1px solid $workshop-border;
+  margin-bottom: 3rem;
+}
+
+.pillar-title {
+  font-family: $font-family-display;
+  font-weight: 600;
+  font-size: clamp(2.25rem, 4vw, 3.25rem);
+  margin: .5rem 0 .75rem;
+}
+
+.pillar-blurb {
+  font-family: $font-family-display;
+  font-style: italic;
+  font-size: 1.25rem;
+  color: $bone-muted;
+  max-width: 36rem;
+  margin: 0;
+}
+
+// --------------------------------------------------------------------------
+// Home / landing page
+// --------------------------------------------------------------------------
+
+// Full-height hero
+.home-hero {
+  min-height: 86vh;
+  display: flex;
+  align-items: center;
+  padding: 6rem 0 4rem;
+  position: relative;
+  border-bottom: 1px solid $workshop-border;
+}
+
+.home-hero-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.home-hero .hero-stack-inner {
+  max-width: 42rem;
+}
+
+.home-hero .hero-name {
+  font-size: clamp(3rem, 9vw, 6.25rem);
+  letter-spacing: -.035em;
+  line-height: .95;
+}
+
+.home-hero .hero-tagline {
+  font-size: clamp(1.35rem, 2.6vw, 1.875rem);
+  margin-top: 1.25rem;
+}
+
+.home-hero .hero-descriptor {
+  font-size: 1.2rem;
+  margin-top: .25rem;
+}
+
+.home-hero-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: .75rem;
+  font-family: $font-family-display;
+  font-size: .8rem;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: $bone-muted;
+  align-self: flex-start;
+  padding-bottom: .25rem;
+  transition: color .2s ease;
+
+  &:hover {
+    color: $brass;
+    text-decoration: none;
+  }
+
+  .home-hero-hint-rule {
+    display: inline-block;
+    width: 3.5rem;
+    height: 1px;
+    background: $bone-muted;
+    transition: background-color .2s ease, width .3s ease;
+  }
+
+  &:hover .home-hero-hint-rule {
+    background: $brass;
+    width: 5rem;
+  }
+}
+
+// Manifesto band
+.home-manifesto {
+  padding: 6rem 0;
+  border-bottom: 1px solid $workshop-border;
+}
+
+.manifesto-text {
+  font-family: $font-family-display;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.5rem, 3vw, 2.35rem);
+  line-height: 1.35;
+  color: $bone;
+  max-width: 42rem;
+  margin: 0;
+  padding-left: 1.75rem;
+  border-left: 3px solid $brass;
+}
+
+// Three pillars teaser
+.home-pillars {
+  padding: 5rem 0 6rem;
+  border-bottom: 1px solid $workshop-border;
+}
+
+.home-pillars-header {
+  margin-bottom: 3rem;
+  max-width: 42rem;
+}
+
+.home-pillars-title {
+  font-family: $font-family-display;
+  font-weight: 600;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  letter-spacing: -.01em;
+  margin: .5rem 0 0;
+  line-height: 1.1;
+}
+
+.home-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid $workshop-border;
+
+  @media (max-width: 767.98px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.home-pillar {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2.5rem 2rem;
+  color: $bone;
+  text-decoration: none;
+  border-right: 1px solid $workshop-border;
+  transition: background-color .25s ease;
+  position: relative;
+
+  &:last-child { border-right: 0; }
+
+  &:hover {
+    background: $workshop-surface;
+    text-decoration: none;
+
+    .home-pillar-label { color: $brass; }
+    .home-pillar-cta   { color: $brass-hover; transform: translateX(.15rem); }
+  }
+
+  @media (max-width: 767.98px) {
+    border-right: 0;
+    border-bottom: 1px solid $workshop-border;
+
+    &:last-child { border-bottom: 0; }
+  }
+}
+
+.home-pillar-head {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.home-pillar-index {
+  font-family: $font-family-display;
+  font-size: .8rem;
+  letter-spacing: .16em;
+  color: $bone-muted;
+}
+
+.home-pillar-label {
+  font-family: $font-family-display;
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 600;
+  letter-spacing: -.01em;
+  line-height: 1;
+  color: $bone;
+  transition: color .2s ease;
+}
+
+.home-pillar-blurb {
+  font-family: $font-family-display;
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1.4;
+  color: $bone-muted;
+  margin: 0;
+  min-height: 4.4em;
+}
+
+.home-pillar-latest-wrap {
+  padding-top: 1rem;
+  border-top: 1px dashed $workshop-border;
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+}
+
+.home-pillar-latest-label {
+  font-family: $font-family-display;
+  font-size: .7rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: $bone-muted;
+}
+
+.home-pillar-latest-title {
+  font-family: $font-family-serif;
+  font-size: 1.05rem;
+  line-height: 1.35;
+  color: $bone;
+}
+
+.home-pillar-cta {
+  margin-top: auto;
+  padding-top: 1rem;
+  font-family: $font-family-display;
+  font-size: .85rem;
+  letter-spacing: .08em;
+  color: $brass;
+  transition: color .2s ease, transform .2s ease;
+}
+
+// Featured piece
+.home-featured {
+  padding: 7rem 0;
+  border-bottom: 1px solid $workshop-border;
+  background:
+    radial-gradient(ellipse at top left, rgba($brass, .06), transparent 60%),
+    $workshop-bg;
+}
+
+.home-featured-inner {
+  max-width: 48rem;
+}
+
+.home-featured-title {
+  font-family: $font-family-display;
+  font-weight: 600;
+  font-size: clamp(2.5rem, 5.5vw, 4.25rem);
+  line-height: 1.02;
+  letter-spacing: -.025em;
+  margin: 1rem 0 1.5rem;
+
+  a { color: $bone; }
+  a:hover { color: $brass; text-decoration: none; }
+}
+
+.home-featured-dek {
+  font-family: $font-family-display;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.25rem, 2vw, 1.6rem);
+  line-height: 1.4;
+  color: $bone-muted;
+  margin: 0 0 2.5rem;
+  max-width: 42rem;
+}
+
+.home-featured-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  font-family: $font-family-display;
+  font-size: 1rem;
+  letter-spacing: .04em;
+  color: $brass;
+  padding-bottom: .25rem;
+  border-bottom: 1px solid $brass;
+  transition: color .2s ease, border-color .2s ease, gap .2s ease;
+
+  &::after { content: "→"; font-size: 1.1em; line-height: 1; }
+
+  &:hover {
+    color: $brass-hover;
+    border-bottom-color: $brass-hover;
+    text-decoration: none;
+    gap: .9rem;
+  }
+}
+
+.home-newsletter {
+  padding: 5rem 0 6rem;
+}
+
+// Newsletter
+.newsletter {
+  padding: 3rem 0;
+
+  .newsletter-copy {
+    font-family: $font-family-display;
+    font-style: italic;
+    color: $bone-muted;
+    font-size: 1.15rem;
+    margin: 0 0 1.25rem;
+  }
+
+  .newsletter-form {
+    display: flex;
+    gap: .5rem;
+    flex-wrap: wrap;
+    max-width: 28rem;
+  }
+
+  .newsletter-input {
+    flex: 1 1 16rem;
+    background: $workshop-bg;
+    border: 1px solid $workshop-border;
+    color: $bone;
+    padding: .65rem .75rem;
+    font-family: $font-family-serif;
+
+    &:focus {
+      outline: none;
+      border-color: $brass;
+    }
+  }
+
+  .newsletter-submit {
+    background: transparent;
+    border: 1px solid $brass;
+    color: $brass;
+    padding: .65rem 1.1rem;
+    font-family: $font-family-display;
+    letter-spacing: .04em;
+    cursor: pointer;
+    transition: background-color .15s ease, color .15s ease;
+
+    &:hover {
+      background: $brass;
+      color: $workshop-bg;
+    }
+  }
+}
+
+// Footer
+.site-footer {
+  border-top: 1px solid $workshop-border;
+  padding: 2.5rem 0 3rem;
+  color: $bone-muted;
+  font-size: .95rem;
+
+  a {
+    color: $bone-muted;
+
+    &:hover { color: $brass; }
+  }
+
+  .footer-cols {
+    display: flex;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .footer-coda {
+    margin-top: 2.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba($bone, .05);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    flex-wrap: wrap;
+    font-size: .8rem;
+    letter-spacing: .02em;
+
+    .footer-copy {
+      margin: 0;
+      color: rgba($bone-muted, .75);
+    }
+
+    .footer-credit {
+      margin: 0;
+      font-family: $font-family-display;
+      font-style: italic;
+      color: rgba($bone-muted, .6);
+      letter-spacing: .04em;
+
+      a {
+        color: rgba($bone-muted, .75);
+        border-bottom: 1px solid transparent;
+        transition: color .2s ease, border-color .2s ease;
+
+        &:hover {
+          color: $brass;
+          border-bottom-color: rgba($brass, .6);
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{%- comment -%}
+  Usage:
+  {% include referral-callout.html product="Spyderco Para 3" url="https://..." note="What I'd actually carry for the daily driver role." %}
+{%- endcomment -%}
+<aside class="referral-callout" role="complementary">
+  <span class="referral-tag">Referral</span>
+  <p class="referral-product">
+    {% if include.url %}<a href="{{ include.url }}" rel="sponsored noopener" target="_blank">{{ include.product }}</a>
+    {%- else -%}{{ include.product }}{%- endif -%}
+  </p>
+  {% if include.note %}<p class="referral-note">{{ include.note }}</p>{% endif %}
+</aside>

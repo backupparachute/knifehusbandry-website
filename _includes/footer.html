@@ -1,0 +1,35 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-cols">
+      <div>
+        <p class="mb-1"><strong style="font-family: 'Fraunces', Georgia, serif; color: #E8DFCE;">{{ site.title }}</strong></p>
+        <p class="mb-0">The care and feeding of fine steel.</p>
+      </div>
+
+      <div>
+        <p class="mb-1" style="font-family: 'Fraunces', Georgia, serif; color: #E8DFCE;">Pillars</p>
+        <ul class="list-unstyled mb-0">
+          {% for pillar in site.pillars %}
+            <li><a href="/{{ pillar.slug }}/">{{ pillar.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div>
+        <p class="mb-1" style="font-family: 'Fraunces', Georgia, serif; color: #E8DFCE;">Elsewhere</p>
+        <ul class="list-unstyled mb-0">
+          <li><a href="{{ '/about/' | relative_url }}">About</a></li>
+          <li><a href="{{ '/feed.xml' | relative_url }}">RSS</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-coda">
+      <p class="footer-copy">&copy; {{ 'now' | date: '%Y' }} {{ site.title }}.</p>
+      <p class="footer-credit">
+        Made by
+        <a href="https://backupparachute.com" rel="noopener">Backup Parachute Software</a>
+      </p>
+    </div>
+  </div>
+</footer>

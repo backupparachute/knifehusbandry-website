@@ -1,0 +1,20 @@
+// ----------------------------------------------------------------------------
+// Knife Husbandry palette and type tokens.
+// Plain SCSS variables used by our custom components below.
+// Bootstrap theming is handled in _theme.scss via its CSS custom properties.
+// ----------------------------------------------------------------------------
+
+// Oil-Lit Workshop palette
+$workshop-bg:       #1F1E1B;
+$workshop-surface:  #2A2824;
+$bone:              #E8DFCE;
+$bone-muted:        #B8B0A0;
+$brass:             #B8956A;
+$brass-hover:       #D4AE82;
+$oxblood:           #6B2C2C;
+$workshop-border:   #3A3833;
+
+// Typography
+$font-family-serif:        "Source Serif 4", "Source Serif Pro", Georgia, serif;
+$font-family-display:      "Fraunces", "Cormorant Garamond", "EB Garamond", Georgia, serif;
+$font-family-monospace:    "JetBrains Mono", "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;

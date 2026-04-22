@@ -1,0 +1,72 @@
+// ----------------------------------------------------------------------------
+// Retheme stock Bootstrap 5 (loaded from CDN) by overriding its CSS custom
+// properties. No rebuild required. We apply under both :root and the
+// [data-bs-theme="dark"] selector Bootstrap ships with, so our values win
+// whether or not the data attribute is set.
+// ----------------------------------------------------------------------------
+
+:root,
+[data-bs-theme="dark"] {
+  // Palette
+  --bs-body-bg:                     #{$workshop-bg};
+  --bs-body-bg-rgb:                 31, 30, 27;
+  --bs-body-color:                  #{$bone};
+  --bs-body-color-rgb:              232, 223, 206;
+  --bs-body-secondary-color:        #{$bone-muted};
+  --bs-body-secondary-bg:           #{$workshop-surface};
+  --bs-body-tertiary-color:         #{$bone-muted};
+  --bs-body-tertiary-bg:            #{$workshop-surface};
+  --bs-emphasis-color:              #{$bone};
+  --bs-secondary-color:             #{$bone-muted};
+  --bs-secondary-bg:                #{$workshop-surface};
+  --bs-tertiary-color:              #{$bone-muted};
+  --bs-tertiary-bg:                 #{$workshop-surface};
+
+  --bs-border-color:                #{$workshop-border};
+  --bs-border-color-translucent:    rgba(232, 223, 206, 0.08);
+
+  --bs-primary:                     #{$brass};
+  --bs-primary-rgb:                 184, 149, 106;
+  --bs-primary-text-emphasis:       #{$brass-hover};
+  --bs-primary-bg-subtle:           rgba(184, 149, 106, 0.12);
+  --bs-primary-border-subtle:       #{$workshop-border};
+
+  --bs-link-color:                  #{$brass};
+  --bs-link-color-rgb:              184, 149, 106;
+  --bs-link-hover-color:            #{$brass-hover};
+  --bs-link-hover-color-rgb:        212, 174, 130;
+  --bs-link-decoration:             none;
+
+  --bs-heading-color:               #{$bone};
+
+  --bs-code-color:                  #{$brass-hover};
+
+  // Typography
+  --bs-body-font-family:            #{inspect($font-family-serif)};
+  --bs-body-font-size:              1.0625rem;
+  --bs-body-font-weight:            400;
+  --bs-body-line-height:            1.65;
+}
+
+html, body {
+  background-color: var(--bs-body-bg);
+  color: var(--bs-body-color);
+}
+
+body {
+  font-family: var(--bs-body-font-family);
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: #{inspect($font-family-display)};
+  color: var(--bs-heading-color);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+hr {
+  border-top: 1px solid var(--bs-border-color);
+  opacity: 1;
+}

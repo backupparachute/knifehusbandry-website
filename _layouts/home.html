@@ -1,0 +1,74 @@
+---
+layout: default
+---
+<section class="home-hero" aria-label="Introduction">
+  <div class="container home-hero-inner">
+    {% include hero-stack.html %}
+    <a class="home-hero-hint" href="#begin" aria-label="Read on">
+      <span>Read on</span>
+      <span class="home-hero-hint-rule" aria-hidden="true"></span>
+    </a>
+  </div>
+</section>
+
+<section class="home-manifesto" id="begin">
+  <div class="container">
+    <p class="manifesto-text">{{ content | strip_html | strip_newlines | strip }}</p>
+  </div>
+</section>
+
+<section class="home-pillars" aria-labelledby="pillars-heading">
+  <div class="container">
+    <div class="home-pillars-header">
+      <p class="eyebrow">Three pillars</p>
+      <h2 id="pillars-heading" class="home-pillars-title">What lives here.</h2>
+    </div>
+
+    <div class="home-pillars-grid">
+      {% for pillar in site.pillars %}
+        {% assign col = site[pillar.slug] | sort: 'date' | reverse %}
+        {% assign latest = col | first %}
+        <a class="home-pillar" href="/{{ pillar.slug }}/">
+          <div class="home-pillar-head">
+            <span class="home-pillar-index">0{{ forloop.index }}</span>
+            <span class="home-pillar-label">{{ pillar.title }}</span>
+          </div>
+          <p class="home-pillar-blurb">{{ pillar.blurb }}</p>
+          {% if latest %}
+            <div class="home-pillar-latest-wrap">
+              <span class="home-pillar-latest-label">Latest</span>
+              <span class="home-pillar-latest-title">{{ latest.title }}</span>
+            </div>
+          {% endif %}
+          <span class="home-pillar-cta" aria-hidden="true">Enter {{ pillar.title }} &rarr;</span>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% assign featured_all = site.tend | concat: site.choose | concat: site.know | where: 'featured', true | sort: 'date' | reverse %}
+{% assign featured = featured_all | first %}
+{% if featured %}
+  {% assign fp = site.pillars | where: 'slug', featured.pillar | first %}
+  <section class="home-featured" aria-label="Featured piece">
+    <div class="container">
+      <div class="home-featured-inner">
+        <p class="eyebrow">Featured{% if fp %} in {{ fp.title }}{% endif %}</p>
+        <h2 class="home-featured-title">
+          <a href="{{ featured.url | relative_url }}">{{ featured.title }}</a>
+        </h2>
+        {% if featured.dek %}
+          <p class="home-featured-dek">{{ featured.dek }}</p>
+        {% endif %}
+        <a class="home-featured-link" href="{{ featured.url | relative_url }}">Read the piece</a>
+      </div>
+    </div>
+  </section>
+{% endif %}
+
+<section class="home-newsletter">
+  <div class="container">
+    {% include newsletter.html %}
+  </div>
+</section>

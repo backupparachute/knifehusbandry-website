@@ -1,0 +1,11 @@
+services:
+  site:
+    image: bretfisher/jekyll-serve
+    container_name: knifehusbandry-site
+    ports:
+      - "4000:4000"
+      - "35729:35729"
+    volumes:
+      - .:/site
+    environment:
+      JEKYLL_ENV: development

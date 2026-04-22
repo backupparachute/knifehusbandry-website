@@ -1,0 +1,8 @@
+{%- comment -%}
+  Usage:
+  {% include pull-quote.html quote="A well-used knife tells a story." cite="Murray Carter" %}
+{%- endcomment -%}
+<blockquote class="pull-quote">
+  {{ include.quote }}
+  {% if include.cite %}<cite>{{ include.cite }}</cite>{% endif %}
+</blockquote>

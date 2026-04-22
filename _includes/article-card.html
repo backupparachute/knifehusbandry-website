@@ -1,0 +1,31 @@
+{%- comment -%}
+  Usage: {% include article-card.html item=item %}
+  item must be a Jekyll document (from a collection or posts).
+{%- endcomment -%}
+{%- assign item = include.item -%}
+{%- assign pillar = site.pillars | where: 'slug', item.pillar | first -%}
+<article class="article-card">
+  {% if item.hero_image %}
+    <a class="article-card-media" href="{{ item.url | relative_url }}" aria-hidden="true" tabindex="-1">
+      <img src="{{ item.hero_image | relative_url }}" alt="" loading="lazy">
+    </a>
+  {% endif %}
+
+  {% if pillar %}
+    <span class="pillar-tag">{{ pillar.title }}</span>
+  {% endif %}
+
+  <h3 class="article-card-title">
+    <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+  </h3>
+
+  {% if item.dek or item.excerpt %}
+    <p class="article-card-dek">{{ item.dek | default: item.excerpt | strip_html | truncate: 140 }}</p>
+  {% endif %}
+
+  {% if item.date %}
+    <p class="article-card-meta">
+      <time datetime="{{ item.date | date_to_xmlschema }}">{{ item.date | date: "%B %-d, %Y" }}</time>
+    </p>
+  {% endif %}
+</article>

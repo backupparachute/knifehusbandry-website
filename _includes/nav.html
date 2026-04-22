@@ -1,0 +1,28 @@
+<header class="site-header">
+  <nav class="navbar navbar-expand-md navbar-dark container" aria-label="Primary">
+    <a class="navbar-brand site-brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+
+    <button class="navbar-toggler"
+            type="button"
+            data-nav-toggler
+            aria-controls="nav-menu"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="nav-menu collapse navbar-collapse" id="nav-menu" data-nav-menu>
+      <ul class="nav-primary navbar-nav ms-auto">
+        {% for pillar in site.pillars %}
+          <li class="nav-item">
+            <a class="nav-link {% if page.pillar == pillar.slug %}active{% endif %}"
+               href="/{{ pillar.slug }}/">{{ pillar.title }}</a>
+          </li>
+        {% endfor %}
+        <li class="nav-item">
+          <a class="nav-link {% if page.url == '/about/' %}active{% endif %}" href="{{ '/about/' | relative_url }}">About</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
